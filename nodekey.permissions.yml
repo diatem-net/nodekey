@@ -1,0 +1,4 @@
+administer nodekey:
+  title: 'Administer Node Key'
+  description: 'Administer access to module'
+  restrict access: true

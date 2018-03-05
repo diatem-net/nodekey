@@ -1,0 +1,15 @@
+nodekey.settings:
+  path: '/admin/config/nodekey'
+  defaults:
+    _form: '\Drupal\nodekey\Form\ConfigForm'
+    _title: 'Node Key settings'
+  requirements:
+    _permission: 'administer nodekey'
+
+nodekey.list:
+  path: '/admin/config/nodekey/list'
+  defaults:
+    _controller: '\Drupal\nodekey\Controller\ListController::index'
+    _title: 'Node Key settings'
+  requirements:
+    _permission: 'administer nodekey'

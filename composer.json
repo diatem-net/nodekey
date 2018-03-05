@@ -1,0 +1,20 @@
+{
+    "name": "diatem-net/nodekey",
+    "description": "Generates a unique key for every node.",
+    "type": "drupal-module",
+    "license": "GPL-3.0+",
+    "authors": [
+        {
+            "name": "Samuel Marchal",
+            "role": "smarchal@diatem.net"
+        },
+        {
+            "name": "Jean-Luc Fritz",
+            "role": "jlfritz@diatem.net"
+        }
+    ],
+    "require": {
+        "composer/installers": "~1.0"
+    },
+    "minimum-stability": "dev"
+}

@@ -1,0 +1,12 @@
+name: 'Node Key'
+type: module
+description: 'Allows to define a unique key for each node.'
+package: Diatem
+dependencies:
+  - node
+  - field
+core: 8.x
+version: '8.x-1.0'
+configure: nodekey.settings
+interface translation project: nodekey
+interface translation server pattern: modules/custom/nodekey/translations/nodekey-%version.%language.po

@@ -1,0 +1,13 @@
+nodekey.settings_tab:
+  route_name: nodekey.settings
+  title: 'Content types'
+  title_context: nodekey
+  weight: 5
+  base_route: nodekey.settings
+
+nodekey.list_tab:
+  route_name: nodekey.list
+  title: 'List of keys'
+  title_context: nodekey
+  weight: 10
+  base_route: nodekey.settings

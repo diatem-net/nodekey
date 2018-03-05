@@ -1,0 +1,6 @@
+services:
+  nodekey.twig.nkurl:
+    arguments: ['@renderer']
+    class: Drupal\nodekey\Twig\NodeKeyExtension
+    tags:
+      - { name: twig.extension }

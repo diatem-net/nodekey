@@ -6,7 +6,7 @@ This key can be used to load an node without relying on its id.
 
 REQUIREMENTS
 -------------
-Drupal 8.x.
+Drupal 9.x.
 
 
 INSTALLATION

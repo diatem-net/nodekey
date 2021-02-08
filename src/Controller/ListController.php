@@ -8,7 +8,6 @@
 namespace Drupal\nodekey\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\Core\Url;
 use Drupal\nodekey\Entity\NodeKeyEntity;
 
 /**
@@ -26,9 +25,13 @@ class ListController extends ControllerBase {
    */
   public function index() {
 
-    $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+	$language = \Drupal::languageManager()->getCurrentLanguage()->getId();
 
-    $page = max(0, pager_find_page());
+
+	$pager_manager = \Drupal::service('pager.manager');
+	$pager_parameters = \Drupal::service('pager.parameters');
+	$page = max(0, $pager_parameters->findPage());
+
     $offset = $page * self::ITEMS_PER_PAGE;
 
     $query = \Drupal::database()->select('node', 'n');
@@ -50,7 +53,7 @@ class ListController extends ControllerBase {
     $stmt_count = $query_count->execute();
     $count = $stmt_count->fetchField();
 
-    pager_default_initialize($count, self::ITEMS_PER_PAGE);
+	$pager_manager->createPager($count, self::ITEMS_PER_PAGE);
 
     $tid = 'nodekeys_table';
     $render = array(

@@ -24,10 +24,10 @@ function nodekey_node_presave($node) {
         $existing = NodeKeyEntity::count($nodekey);
         if ($existing == 0) {
             $nodekey = NodeKeyEntity::create($node);
-            $node->set('nodekey', $nodekey);
-            drupal_set_message(sprintf(t('The node key « %s » has been created.', array(), array('context' => 'nodekey')), $nodekey));
+            $node->set('nodekey', $nodekey);			
+			\Drupal::messenger()->addMessage(sprintf(t('The node key « %s » has been created.', array(), array('context' => 'nodekey')), $nodekey));
         } elseif ($existing > 1) {
-            drupal_set_message(sprintf(t('The node key « %s » already exists. Please fix it in your database.', array(), array('context' => 'nodekey')), $nodekey), 'warning');
+			\Drupal::messenger()->addMessage(sprintf(t('The node key « %s » already exists. Please fix it in your database.', array(), array('context' => 'nodekey')), $nodekey), 'warning');
         }
     }
 }

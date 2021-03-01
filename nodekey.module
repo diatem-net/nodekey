@@ -1,5 +1,4 @@
 <?php
-
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\nodekey\Entity\NodeKeyEntity;
 
@@ -30,4 +29,24 @@ function nodekey_node_presave($node) {
 			\Drupal::messenger()->addMessage(sprintf(t('The node key « %s » already exists. Please fix it in your database.', array(), array('context' => 'nodekey')), $nodekey), 'warning');
         }
     }
+}
+
+function nodekey_theme_suggestions_page_alter(array &$suggestions)
+{
+	if ($node = \Drupal::routeMatch()->getParameter('node')) {
+		if ($node->hasField('nodekey')) {
+			$nodekey = $node->get('nodekey')->value;
+			$suggestions[] = 'page__' . $nodekey;
+		}
+	}
+}
+
+function nodekey_theme_suggestions_node_alter(array &$suggestions)
+{
+	if ($node = \Drupal::routeMatch()->getParameter('node')) {
+		if ($node->hasField('nodekey')) {
+			$nodekey = $node->get('nodekey')->value;
+			$suggestions[] = 'node__' . $nodekey;
+		}
+	}
 }

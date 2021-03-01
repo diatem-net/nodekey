@@ -12,7 +12,7 @@ Drupal 9.x.
 INSTALLATION
 -------------
 Install this module as usual. Please see
-http://drupal.org/documentation/install/modules-themes/modules-8
+https://www.drupal.org/docs/extending-drupal/installing-modules
 
 
 CONFIGURATION
@@ -31,6 +31,10 @@ USAGE
 
     // Create a new key
     $nodekey = NodeKeyEntity::create($node);
+
+	// theme suggestions
+	page--'my_node_key'
+	node--'my_node_key'
 
 You can find the list of all created keys at `/admin/config/nodekey/list`.  
 This module currently does not allow edition, but feel free to edit the `node_nodekey` table in your database (just make sure taht there are no duplicates).

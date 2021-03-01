@@ -84,9 +84,15 @@ class NodeKeyEntity
 				}
 				if ($bundle == $node->getType()) {
 
-					$nodekey = strtolower($node->getTitle());
-					$nodekey = preg_replace('/[^a-z\d]+/', '-', $nodekey);
-					$nodekey = trim($nodekey, '-');
+					$nodekey = \Transliterator::createFromRules(
+						':: Any-Latin;'
+						. ':: NFD;'
+						. ':: [:Nonspacing Mark:] Remove;'
+						. ':: NFC;'
+						. ':: [:Punctuation:] Remove;'
+						. ':: Lower();'
+						. '[:Separator:] > \'-\''
+					)->transliterate($node->getTitle());
 
 					$i = -1;
 					do {

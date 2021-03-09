@@ -29,13 +29,16 @@ class NodeKeyEntity
 			return $element !== 0;
 		});
 
+		$language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+
 		$query = \Drupal::entityQuery('node');
 		$query->condition('type', array_values($content_types), 'IN');
 		$query->condition('nodekey', $key);
+		$query->condition('langcode', $language);
 		$nids = $query->execute();
 
 		if (!empty($nids)) {
-			$node = Node::load(reset($nids));
+			$node = Node::load(reset($nids))->getTranslation($language);
 			if ($node) {
 				return $node;
 			}

@@ -128,7 +128,10 @@ class NodeKeyEntity
 	{
 
 		if ($entity = self::load($key)) {
-			return $entity->url();
+            if(method_exists($entity, 'url')){
+                return $entity->url();
+            }
+			return $entity->toUrl()->toString();
 		}
 
 		return null;

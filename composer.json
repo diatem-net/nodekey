@@ -13,4 +13,5 @@
             "role": "jlfritz@diatem.net"
         }
     ],
+    "minimum-stability": "dev"
 }

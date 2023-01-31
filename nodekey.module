@@ -1,5 +1,4 @@
 <?php
-use Drupal\Core\Form\FormStateInterface;
 use Drupal\nodekey\Entity\NodeKeyEntity;
 
 function _nodekey_check_content_type($node) {

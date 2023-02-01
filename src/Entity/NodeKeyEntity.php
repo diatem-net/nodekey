@@ -32,6 +32,7 @@ class NodeKeyEntity
 		$language = \Drupal::languageManager()->getCurrentLanguage()->getId();
 
 		$query = \Drupal::entityQuery('node');
+		$query->accessCheck(TRUE);
 		$query->condition('type', array_values($content_types), 'IN');
 		$query->condition('nodekey', $key);
 		$query->condition('langcode', $language);

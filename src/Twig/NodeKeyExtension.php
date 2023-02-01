@@ -3,11 +3,13 @@
 namespace Drupal\nodekey\Twig;
 
 use Drupal\nodekey\Entity\NodeKeyEntity;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFunction;
 
 /**
  * Add a nkurl() function to Twig
  */
-class NodeKeyExtension extends \Twig_Extension {
+class NodeKeyExtension extends AbstractExtension {
 
   /**
    * {@inheritdoc}
@@ -21,12 +23,12 @@ class NodeKeyExtension extends \Twig_Extension {
    */
   public function getFunctions() {
     return array(
-      new \Twig_SimpleFunction(
+      new TwigFunction(
         'nk',
         array($this, 'nk'),
         array('is_safe' => array('html'))
       ),
-      new \Twig_SimpleFunction(
+      new TwigFunction(
         'nkurl',
         array($this, 'nkurl'),
         array('is_safe' => array('html'))

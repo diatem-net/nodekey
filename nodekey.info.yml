@@ -1,7 +1,7 @@
 name: 'Node Key'
 type: module
 description: 'Allows to define a unique key for each node.'
-core_version_requirement: ^9.3 || ^10
+core_version_requirement: ^9.3 || ^10 || ^11
 package: Diatem
 dependencies:
   - node
